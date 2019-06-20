@@ -37,7 +37,7 @@ void loop(void)
   delay(1000);
   u8x8.clearLine(2);
 
-  u8x8.drawString(0, 0, getRandomReviewer());
+  u8x8.drawString(0, 0, getRandomReviewer().c_str());
   delay(1000);
   u8x8.clearLine(0);
 }
@@ -68,7 +68,7 @@ String getRandomReviewer()
   Serial.println(randomIndex);
 
   // create the result-string
-  String returnValue = people[randomIndex] + " is your guy! :)";
+  String returnValue = people[randomIndex] + " won :)";
 
   // and return it
   return returnValue;
