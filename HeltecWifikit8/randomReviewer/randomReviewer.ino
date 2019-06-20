@@ -29,17 +29,17 @@ void setup(void)
 void loop(void)
 {
   u8x8.setFont(u8x8_font_chroma48medium8_r);
-  u8x8.drawString(0, 0, "Laku noc,");
-  delay(1000);
+  // clear all at once?
   u8x8.clearLine(0);
-
-  u8x8.drawString(0, 2, "Puska! <3");
-  delay(1000);
+  u8x8.clearLine(1);
   u8x8.clearLine(2);
+  
+  u8x8.drawString(0, 0, "Laku noc,");
+  u8x8.drawString(0, 1, "Puska! <3");
 
-  u8x8.drawString(0, 0, getRandomReviewer().c_str());
-  delay(1000);
-  u8x8.clearLine(0);
+  u8x8.drawString(0, 2, getRandomReviewer().c_str());
+  
+  delay(666);
 }
 
 //----------------------------------------------------------------------------------------------------
