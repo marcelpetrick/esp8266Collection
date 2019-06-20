@@ -44,8 +44,6 @@ void loop(void)
 
 //----------------------------------------------------------------------------------------------------
 
-//! @todo improve this later by using a std::vector ..
-#define PEOPLEARRAYSIZE 7
 // @brief function to determine randomly inside a given array one of the values
 // @returns String like "MPE was picked".
 String getRandomReviewer()
@@ -53,7 +51,7 @@ String getRandomReviewer()
   Serial.println("getRandomReviewer()");
 
   // init the array of possible reviewers
-  String people[PEOPLEARRAYSIZE] = {
+  static const std::vector<String> potentialReviewers = {
     "GSC",
     "MPE",
     "NLE",
@@ -64,11 +62,11 @@ String getRandomReviewer()
   };
 
   // randomly determine an index
-  int const randomIndex = random(PEOPLEARRAYSIZE); // exclusive the last value
+  int const randomIndex = random(potentialReviewers.size()); // exclusive the last value
   Serial.println(randomIndex);
 
   // create the result-string
-  String returnValue = people[randomIndex] + " won :)";
+  String returnValue = potentialReviewers[randomIndex] + " won :)";
 
   // and return it
   return returnValue;
