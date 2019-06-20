@@ -1,2 +1,3 @@
 # esp8266Collection
-collection of several programs for the esp8266 (NodeMCU..)
+
+Collection of smol and not so small programs for the ESP8266 board(s) written in C++.
