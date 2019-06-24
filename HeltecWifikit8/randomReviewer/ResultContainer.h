@@ -1,0 +1,6 @@
+
+class ResultContainer
+{
+    ResultContainer() = default;
+
+};
