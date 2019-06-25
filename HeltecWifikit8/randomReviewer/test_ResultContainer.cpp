@@ -38,7 +38,7 @@ void test_ResultContainer::testContruction()
 
 void test_ResultContainer::testGetResult()
 {
-    ResultContainer klaus(10);
+    ResultContainer klaus(3);
     auto const resultString = klaus.getResultString();
 
     QCOMPARE(resultString, std::string(""));
@@ -48,6 +48,18 @@ void test_ResultContainer::testGetResult()
 
     klaus.insert("AAA");
     QCOMPARE(klaus.getResultString(), std::string("MPE;AAA"));
+
+    klaus.insert("BBB");
+    QCOMPARE(klaus.getResultString(), std::string("MPE;AAA;BBB"));
+
+    // first item should be discarded
+    klaus.insert("CCC");
+//    auto const debug = klaus.getResultString();
+    QCOMPARE(klaus.getResultString(), std::string("AAA;BBB;CCC"));
+
+    // first item should be discarded
+    klaus.insert("DDD");
+    QCOMPARE(klaus.getResultString(), std::string("BBB;CCC;DDD"));
 }
 
 // ------------------------------------------------------------------------

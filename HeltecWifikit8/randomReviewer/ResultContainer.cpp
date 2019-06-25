@@ -10,7 +10,8 @@ ResultContainer::ResultContainer(size_t maxSize) :
 void ResultContainer::insert(std::string input)
 {
     // check size and pop if needed
-    while (_container.size() > _maxSize)
+    // test against the "future" size
+    while ((_container.size() + 1) > _maxSize)
     {
         _container.erase(_container.begin());
     }
