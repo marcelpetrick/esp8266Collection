@@ -17,10 +17,15 @@ public:
     // get HTML-representation
     std::string getHtml();
 
-
 private:
+    // for proper testing of the private functionality - even when it may be implementation details
+    friend class test_ResultContainer;
+
     // hidden to prevent usage
     ResultContainer() = default;
+
+    // get accumulated results: reverse order
+    std::string getResultString();
 
     // maximum size of the container - just settable via ctor
     size_t _maxSize{0};

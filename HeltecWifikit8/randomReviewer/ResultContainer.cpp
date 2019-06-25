@@ -24,3 +24,25 @@ std::string ResultContainer::getHtml()
     // todo
     return std::string("not implemented");
 }
+
+std::string ResultContainer::getResultString()
+{
+    std::string result;
+
+    bool notFirstElement{false};
+    for(auto const& elem : _container)
+    {
+        if(notFirstElement)
+        {
+            result.append(";");
+        }
+        else
+        {
+            notFirstElement = true;
+        }
+
+        result.append(elem);
+    }
+
+    return result;
+}

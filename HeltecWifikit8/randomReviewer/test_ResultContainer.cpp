@@ -13,6 +13,9 @@ private slots:
     void toUpper();
 
     void testContruction();
+
+    // test if the stringifying works properly
+    void testGetResult();
 };
 
 // ------------------------------------------------------------------------
@@ -29,7 +32,22 @@ void test_ResultContainer::testContruction()
     ResultContainer klaus(10);
     auto const resultString = klaus.getHtml();
 
-    QCOMPARE(resultString, std::string("not implemented1")); // the suffix 1 makes it fail - good! :)
+    // TODO
+    QCOMPARE(resultString, std::string("not implemented")); // the suffix 1 makes it fail - good! :)
+}
+
+void test_ResultContainer::testGetResult()
+{
+    ResultContainer klaus(10);
+    auto const resultString = klaus.getResultString();
+
+    QCOMPARE(resultString, std::string(""));
+
+    klaus.insert("MPE");
+    QCOMPARE(klaus.getResultString(), std::string("MPE"));
+
+    klaus.insert("AAA");
+    QCOMPARE(klaus.getResultString(), std::string("MPE;AAA"));
 }
 
 // ------------------------------------------------------------------------
