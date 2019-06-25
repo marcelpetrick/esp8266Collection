@@ -9,23 +9,18 @@ class test_ResultContainer: public QObject
     Q_OBJECT
 
 private slots:
-    // fake slot - remove later
-    void toUpper();
 
+    // initial test - if inserting works at all
     void testContruction();
 
     // test if the stringifying works properly
     void testGetResult();
+
+    // test to verify if valid HTML is produced
+    void testHTML();
 };
 
 // ------------------------------------------------------------------------
-
-void test_ResultContainer::toUpper()
-{
-    // just fake
-    QString str = "Hello";
-    QCOMPARE(str.toUpper(), QString("HELLO"));
-}
 
 void test_ResultContainer::testContruction()
 {
@@ -60,6 +55,20 @@ void test_ResultContainer::testGetResult()
     // first item should be discarded
     klaus.insert("DDD");
     QCOMPARE(klaus.getResultString(), std::string("BBB;CCC;DDD"));
+}
+
+void test_ResultContainer::testHTML()
+{
+    ResultContainer klaus(3);
+    klaus.insert("MPE");
+    klaus.insert("AAA");
+    klaus.insert("BBB");
+    klaus.insert("CCC");
+
+    auto const html = klaus.getHtml();
+    // TODO construct something
+    std::string expectedHtml;
+    QCOMPARE(html, expectedHtml);
 }
 
 // ------------------------------------------------------------------------
