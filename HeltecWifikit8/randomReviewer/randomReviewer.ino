@@ -93,7 +93,6 @@ String getRandomReviewer()
     "RNI",
     "HGA",
     "MDR",
-    "NKU",
   };
 
   // randomly determine an index
